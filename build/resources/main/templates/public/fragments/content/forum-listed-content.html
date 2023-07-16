@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lagn="ko" xmlns:th="http://www.thymeleaf.org">
+
+<!-- Content -->
+<th:block th:fragment="forumListedContent">
+    <main>
+        <div class="container-fluid px-4 bg-main-container col-lg-11 col-12">
+            <!-- Title, Sort를 위한 row-->
+            <div class="row align-items-center">
+                <!-- title -->
+                <div id="page-title-row" class="col-6 mb-4">
+                </div>
+
+                <!-- sort Btn -->
+                <div class="sort-btn col-6 mb-4 d-flex justify-content-end">
+                    <p><a class="btn btn-outline-secondary" data-bs-toggle="collapse" href="#sort-collapse"
+                          role="button" aria-expanded="false">
+                        정렬</a>
+                    </p>
+                </div>
+
+                <div id="sort-collapse" class="collapse mb-4 row justify-content-end">
+                    <div class="sort-tag-collapse col-md-6 ">
+                        <div class="form-control float-end col-md-6 justify-content-between">
+                            <div id="mood-sort-zone" class="mb-2">
+                                <label class="small mb-2">분위기</label>
+                                <div class="mood-sort-btn"></div>
+                            </div>
+
+                            <div id="price-sort-zone" class="mb-2">
+                                <label class="small mb-2">가격대</label>
+                                <div class="price-sort-btn"></div>
+                            </div>
+
+                            <div id="sub-category-sort-zone" class="mb-2">
+                                <label class="small mb-2">카테고리</label>
+                                <div class="sub-category-sort-btn">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Store Card를 위한 row-->
+            <div id="store-row" class="store-row row"></div>
+
+            <!-- Pagination을 위한 row-->
+            <div id="index-page-zone" class="page-row row">
+                <nav id="index-page-row" class="" aria-label="Page navigation example text-secondary">
+                    <ul id="store-pagination" class="pagination justify-content-center"></ul>
+                </nav>
+            </div>
+
+        </div>
+    </main>
+</th:block>
+
+</html>

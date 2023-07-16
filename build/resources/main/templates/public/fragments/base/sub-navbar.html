@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
+
+
+<th:block th:fragment="subNavbar">
+    <div id="store-nav" class="nav navbar-expand bg-light justify-content-end">
+        <!--    <form class="d-flex" role="search">-->
+        <!--      <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">-->
+        <!--      <button class="btn btn-outline-success" type="submit">검색</button>-->
+        <!--    </form>-->
+
+        <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4 color-white">
+            <li class="nav-item dropdown">
+                <button id="nav-restaurant" class="btn btn-link btn-lg" role="button" data-bs-toggle="dropdown"
+                        aria-expanded="false"><img src="/images/restaurant.svg" width="25"></button>
+
+                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                    <li><a class="dropdown-item" href="/store/restaurant/seoul">서울</a></li>
+                    <li>
+                        <hr class="dropdown-divider"/>
+                    </li>
+                    <li><a class="dropdown-item" href="/store/restaurant/gyeonggi">경기</a></li>
+                    <li>
+                        <hr class="dropdown-divider"/>
+                    </li>
+                    <li><a class="dropdown-item" href="/store/restaurant/etc">기타</a></li>
+                </ul>
+            </li>
+            <li class="nav-item dropdown">
+                <button id="nav-cafe" class="btn btn-link btn-lg" role="button" data-bs-toggle="dropdown"
+                        aria-expanded="false"><img src="/images/cafe.svg" width="25"></button>
+
+                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                    <li><a class="dropdown-item" href="/store/cafe/seoul">서울</a></li>
+                    <li>
+                        <hr class="dropdown-divider"/>
+                    </li>
+                    <li><a class="dropdown-item" href="/store/cafe/gyeonggi">경기</a></li>
+                    <li>
+                        <hr class="dropdown-divider"/>
+                    </li>
+                    <li><a class="dropdown-item" href="/store/cafe/etc">기타</a></li>
+                </ul>
+            </li>
+            <li class="nav-item dropdown">
+                <button id="nav-bar" class="btn btn-link btn-lg" role="button" data-bs-toggle="dropdown"
+                        aria-expanded="false"><img src="/images/bar.svg" width="25"></button>
+
+                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                    <li><a class="dropdown-item" href="/store/bar/seoul">서울</a></li>
+                    <li>
+                        <hr class="dropdown-divider"/>
+                    </li>
+                    <li><a class="dropdown-item" href="/store/bar/gyeonggi">경기</a></li>
+                    <li>
+                        <hr class="dropdown-divider"/>
+                    </li>
+                    <li><a class="dropdown-item" href="/store/bar/etc">기타</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</th:block>
+</html>

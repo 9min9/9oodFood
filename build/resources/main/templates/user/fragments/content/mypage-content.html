@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lagn="ko" xmlns:th="http://www.thymeleaf.org">
+
+<!-- Content -->
+<th:block th:fragment="mypageContent">
+    <main>
+        <div class="container py-4">
+
+            <div class="row align-items-center justify-content-between">
+                <a class="navbar-brand h1 text-center" href="">
+                    <span class="text-dark h2>">회원정보 수정</span>
+                </a>
+                <div class="col-md-6 mx-auto">
+                    <form id="user-update-form">
+                        <div class="row align-items-center justify-content-center my-2">
+                            <label for="login-id" class="form-label my-3">아이디</label>
+                            <div class="input-group">
+                                <input id="login-id" class="form-control" name="username" type="text"
+                                       placeholder="10자 이내" readonly>
+
+                            </div>
+                        </div>
+
+                        <div class="row my-2">
+                            <div class="col-md-6">
+                                <label for="password" class="form-label my-3">닉네임</label>
+                                <input id="nickname" class="form-control" name="nickname" type="text"
+                                       placeholder="10자 이내">
+                                <div id="nickname-errors" class="text-danger small mt-1"></div>
+
+                            </div>
+
+                            <div class="col-md-6">
+                                <label for="password" class="form-label my-3">현재 비밀번호</label>
+                                <input id="password" class="form-control" name="password" type="password" placeholder="비밀번호 변경 시 입력">
+                                <div id="password-errors" class="text-danger small mt-1"></div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <label for="changePassword" class="form-label my-3">변경할 비밀번호</label>
+                                <input id="changePassword" class="form-control" name="changePassword" type="password" placeholder="8 ~ 30자 이내 영문과 숫자를 포함">
+                                <div id="changePassword-errors" class="text-danger small mt-1"></div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <label for="confirmPassword" class="form-label my-3">변경할 비밀번호 확인</label>
+                                <input id="confirmPassword" type="password" name="confirmPassword" class="form-control">
+                                <div id="confirmPassword-errors" class="text-danger small mt-1"></div>
+                            </div>
+                        </div>
+
+                        <div class="row align-items-center justify-content-center my-2">
+                            <div id="user-email-row" class="col">
+                                <label for="email" class="form-label my-3">이메일</label>
+
+                                <div id="email-zone" class="input-group mb-3">
+                                    <input id="email" class="form-control" name="email" type="text">
+                                    <button id="email-send-btn" class="btn btn-outline-secondary" type="button">본인확인
+                                    </button>
+                                    <input id="emailAuth" name="emailAuth" value="false" hidden>
+                                </div>
+                                <div id="email-confirm-zone" class="input-group mb-3">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row my-2">
+                            <div class="col-md-7">
+                                <label for="name" class="form-label col-9 my-3">이름</label>
+                                <input id="name" class="form-control" name="name" type="text">
+                                <div id="name-errors" class="text-danger small mt-1"></div>
+
+                            </div>
+
+                            <div class="col-md-5">
+                                <label class="form-label col-md-4 my-3">성별</label>
+                                <select id="gender" class="form-select" name="gender">
+                                    <option value selected>성별</option>
+                                    <option value="MALE">남자</option>
+                                    <option value="FEMALE">여자</option>
+                                </select>
+
+                                <div id="gender-errors" class="text-danger small ms-1 mt-1"></div>
+
+                            </div>
+                        </div>
+
+                        <label class="form-label col-3 my-3">생년 월일</label>
+                        <div class="row my-2">
+                            <div class="col-md-4">
+                                <input id="yy" class="form-control" name="year" type="number" placeholder="년(4자)"
+                                       maxlength="4">
+                                <div id="year-errors" class="text-danger small mt-1"></div>
+                            </div>
+
+                            <div class="col-md-4">
+                                <select id="mm" class="form-select" name="month">
+                                    <option value selected>월</option>
+                                    <option value=1>1</option>
+                                    <option value=2>2</option>
+                                    <option value=3>3</option>
+                                    <option value=4>4</option>
+                                    <option value=5>5</option>
+                                    <option value=6>6</option>
+                                    <option value=7>7</option>
+                                    <option value=8>8</option>
+                                    <option value=9>9</option>
+                                    <option value=10>10</option>
+                                    <option value=11>11</option>
+                                    <option value=12>12</option>
+                                </select>
+                                <div id="month-errors" class="text-danger small mt-1"></div>
+                            </div>
+                            <div class="col-md-4">
+                                <input id="dd" class="form-control" name="day" type="number" placeholder="일">
+                                <div id="day-errors" class="text-danger small mt-1"></div>
+                            </div>
+                        </div>
+
+                        <div class="d-grid my-3">
+                            <button id="update-btn" class="btn btn-secondary my-3" data-bs-target="#user-update-modal"
+                                    data-bs-toggle="modal" type="button" value="수정하기">수정하기
+                            </button>
+                        </div>
+
+                        <div id="user-update-modal" class="modal fade" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="test" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 id="user-update-modal-title" class="modal-title">회원 정보 수정</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                aria-label="Close"></button>
+                                    </div>
+
+                                    <div id="user-update-modal-body" class="modal-body">정말 수정하시겠습니까?</div>
+
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">아니요</button>
+                                        <button id="user-update-chk-btn" type="submit" data-bs-dismiss="submit" class="btn btn-primary">네</button>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main>
+</th:block>
+</html>

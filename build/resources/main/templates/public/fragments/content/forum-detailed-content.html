@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+
+<!-- Content -->
+<th:block th:fragment="forumDetailedContent">
+<!--    <main>-->
+        <div class="container-fluid px-4 bg-main-container col-lg-11 col-12">
+            <div id="store-title-row">
+            </div>
+
+            <!-- Map Table -->
+            <div class="row">
+                <div class="row equal">
+                    <!--  Table  -->
+                    <div id="store-info-body" class="card-body col-md-6">
+                        <table id="store-info-title" class="table table-striped"><thead><tr><td>가게 정보</td></tr></thead></table>
+                        <div id="store-info-zone" class="card-body form-control" >
+
+                            <div id="store-address-zone" class="mt-2 mb-2">
+                                <div id="store-address-title-row" class="mb-2"><label class="small">주소</label></div>
+                                <div id="store-address-label-row">
+                                </div>
+                            </div>
+
+                            <div id="category-zone" class="col-md-auto">
+                                <div id="store-subCategory-zone" class="me-2 mb-2">
+                                    <div id="store-category-title-row" class="mb-2"><label class="small">카테고리</label></div>
+                                    <div id="store-category-label-row" class="d-xs-flex-row justify-content-start align-items-center"></div>
+                                </div>
+                            </div>
+
+                            <div id="price-waiting-status-zone" class="d-flex flex-wrap justify-content-start">
+                                <div id="store-price-zone" class="me-3 mb-2">
+                                    <div id="store-price-title-row" class="mb-2"><label class="small">가격대</label></div>
+                                    <div id="store-price-label-row" class="d-flex justify-content-start align-items-center"></div>
+                                </div>
+
+                                <div id="store-waiting-zone" class="me-3 mb-2">
+                                    <div id="store-waiting-title-row" class="mb-2"><label class="small">웨이팅</label></div>
+                                    <div id="store-waiting-label-row" class="d-flex justify-content-start align-items-center"></div>
+                                </div>
+
+                                <div id="store-status-zone" class="me-3 mb-2">
+                                    <div id="store-status-title-row" class="mb-2"><label class="small">점수</label></div>
+                                    <div id="store-status-label-row"></div>
+                                </div>
+                            </div>
+
+                            <div id="mood-price-zone" class="d-md-flex justify-content-start col-md-auto">
+                                <div id="store-mood-zone" class="me-2 mb-2">
+                                    <div id="store-mood-title-row" class="mb-2"><label class="small">분위기</label></div>
+                                    <div id="store-mood-label-row" class=""></div>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <!-- File -->
+                    <div id="store-image-body" class="card-body col-md-6">
+                        <table id="store-image-title" class="table table-striped"><thead><tr><td>사진</td></tr></thead></table>
+
+                        <div id="store-image-carousel" class="form-control carousel slide" data-bs-ride="carousel">
+                            <div id="store-image-carousel-inner" class="carousel-inner" style="height:356px"></div>
+                            <div id="store-image-carousel-indicator" class="carousel-indicators"></div>
+                        </div>
+
+<!--                        <div id="store-image-modal" class="modal bg-black bg-opacity-75"  tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">-->
+<!--                            <div class="modal-dialog modal-lg">-->
+<!--                                <div class="modal-content">-->
+<!--                                    <div class="modal-header">-->
+<!--                                        <button id="image-modal-btn-close" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>-->
+<!--                                    </div>-->
+<!--                                    <div class="modal-body">-->
+<!--                                        <div id="store-image-modal-carousel" class="form-control carousel slide" data-bs-ride="carousel" data-bs-interval="false">-->
+<!--                                            <div id="store-image-modal-carousel-inner" class="carousel-inner"></div>-->
+<!--                                            <div id="store-image-modal-carousel-indicator" class="carousel-indicators"></div>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                    <div class="modal-footer">-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+
+                    </div>
+                </div>
+
+                <div class="row equal">
+                    <div id="store-contents-body" class="card-body col-md-6">
+                        <table id="store-contents-title" class="table table-striped"><thead><tr><td>내용</td></tr></thead></table>
+                        <div id="store-contents-zone">
+                        </div>
+                    </div>
+                    <!-- Map -->
+                    <div id="store-map-body" class="card-body col-md-6">
+                        <table id="store-map-title" class="table table-striped"><thead><tr><td>위치</td></tr></thead></table>
+                        <div id="store-map-zone">
+                            <div id="store-map" class="form-control"  style="width:100%;height:384px;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+<!--    </main>-->
+</th:block>
+</html>

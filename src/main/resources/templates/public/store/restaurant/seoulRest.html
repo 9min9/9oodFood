@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<head>
+    <!-- Header -->
+    <th:block th:replace="public/fragments/base/head :: header"></th:block>
+</head>
+
+<body class="sb-nav-fixed">
+<nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
+    <!-- Top -->
+    <th:block th:replace="public/fragments/base/navbar :: navbar"></th:block>
+</nav>
+
+<div id="layoutSidenav">
+    <div id="layoutSidenav_nav">
+        <!-- Sidebar -->
+        <th:block th:replace="public/fragments/base/sidebar :: sidebar"></th:block>
+    </div>
+
+    <div id="layoutSidenav_content">
+        <!-- Sub Navbar -->
+        <th:block th:replace="public/fragments/base/sub-navbar :: subNavbar"></th:block>
+        <!-- Content -->
+        <th:block th:replace="public/fragments/content/forum-listed-content :: forumListedContent"></th:block>
+
+        <!-- Footer -->
+        <th:block th:replace="public/fragments/base/footer :: footer"></th:block>
+    </div>
+
+</div>
+
+<!-- Script -->
+<th:block th:replace="public/fragments/base/script :: script"></th:block>
+<th:block th:replace="public/fragments/script/forum/forum-listed-script :: forumListedScript"></th:block>
+
+
+</body>
+</html>

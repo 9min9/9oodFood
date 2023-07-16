@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<head>
+    <!-- Header -->
+    <th:block th:replace="public/fragments/base/head :: header"></th:block>
+</head>
+
+<body>
+
+<div class="row">
+    <th:block th:replace="public/fragments/content/signup-content :: signupContent"></th:block>
+</div>
+
+<!-- Script -->
+<th:block th:replace="public/fragments/base/script :: script"></th:block>
+<th:block th:replace="public/fragments/script/account/signup-script :: signupScript"></th:block>
+</body>
+
+<footer class="fixed-bottom">
+    <th:block th:replace="public/fragments/base/footer :: footer"></th:block>
+</footer>
+</html>

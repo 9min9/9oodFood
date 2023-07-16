@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lagn="ko" xmlns:th="http://www.thymeleaf.org">
+
+<!-- Content -->
+<th:block th:fragment="indexContent">
+    <div class="container-fluid px-4 bg-main-container col-lg-11 col-12">
+
+        <h1 class="mt-4">추천 가게</h1>
+        <ol class="breadcrumb mb-4">
+            <li class="breadcrumb-item active">Recommend</li>
+        </ol>
+
+        <div class="recommendLine row">
+            <div id="reco-carouselIndicators" class="carousel slide" data-bs-interval="false" data-bs-ride="carousel">
+                <div class="carousel-indicators" style="z-index:1">
+                    <button type="button" data-bs-target="#reco-carouselIndicators" data-bs-slide-to="0"
+                            class="active" aria-current="true" aria-label="Slide 1"></button>
+                    <button type="button" data-bs-target="#reco-carouselIndicators" data-bs-slide-to="1"
+                            aria-label="Slide 2"></button>
+                    <button type="button" data-bs-target="#reco-carouselIndicators" data-bs-slide-to="2"
+                            aria-label="Slide 3"></button>
+                    <button type="button" data-bs-target="#reco-carouselIndicators" data-bs-slide-to="3"
+                            aria-label="Slide 4"></button>
+                </div>
+                <div id="recommend-carousel-inner" class="carousel-inner w-100 h-100">
+
+                </div>
+
+                <button class="carousel-control-prev " type="button" data-bs-target="#reco-carouselIndicators"
+                        data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon border-black" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next " type="button" data-bs-target="#reco-carouselIndicators"
+                        data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        </div>
+
+        <h1 class="mt-4">신규 가게</h1>
+        <ol class="breadcrumb mb-4">
+            <li class="breadcrumb-item active">Brand New</li>
+        </ol>
+
+        <div class="brandNewLine row mb-4">
+            <div id="carouselIndicators" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-indicators" style="z-index:1">
+                    <button type="button" data-bs-target="#carouselIndicators" data-bs-slide-to="0" class="active"
+                            aria-current="true" aria-label="Slide 1"></button>
+                    <button type="button" data-bs-target="#carouselIndicators" data-bs-slide-to="1"
+                            aria-label="Slide 2"></button>
+                    <button type="button" data-bs-target="#carouselIndicators" data-bs-slide-to="2"
+                            aria-label="Slide 3"></button>
+                    <button type="button" data-bs-target="#carouselIndicators" data-bs-slide-to="3"
+                            aria-label="Slide 4"></button>
+                </div>
+                <div id="new-carousel-inner" class="carousel-inner w-100 h-100">
+
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselIndicators"
+                        data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselIndicators"
+                        data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        </div>
+
+    </div>
+</th:block>
+</html>

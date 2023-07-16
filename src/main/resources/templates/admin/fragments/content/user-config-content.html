@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lagn="ko" xmlns:th="http://www.thymeleaf.org">
+
+<!-- Content -->
+<th:block th:fragment="userConfigContent">
+  <main>
+    <div class="container-fluid px-4 bg-main-container">
+      <!-- Title, Sort를 위한 row-->
+      <div class="row align-items-center">
+        <!-- title -->
+        <div class="store-title col-6">
+          <h1 class="mt-4">회원 관리</h1>
+          <ol class="breadcrumb mb-4">
+            <li class="breadcrumb-item active">All Users</li>
+          </ol>
+        </div>
+
+        <!-- sort Btn -->
+        <div class="sort-btn col-6 mb-4 d-flex justify-content-end">
+          <p>
+            <a class="btn btn-outline-secondary" data-bs-toggle="collapse" href="#sort-collapse"
+               role="button" aria-expanded="false" aria-controls="sortCollapse">정렬 태그 선택</a>
+          </p>
+        </div>
+
+        <div id="sort-collapse" class="collapse col-md-6 mb-4" >
+          <div class="form-control float-end col-md-6 justify-content-between">
+            <div id="gender-sort-zone" class="mb-2">
+              <label class="small mb-2">성별</label>
+              <div class="gender-sort-btn"></div>
+            </div>
+            <div id="age-sort-zone" class="mb-2">
+              <label class="small mb-2">나이대</label>
+              <div class="age-sort-btn"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Store List Table을 위한 row-->
+        <div id="user-list-row" class="row">
+          <table id="user-count-table" class="table table-hover caption-top">
+            <caption id="user-count-list-caption">유저 개수</caption>
+            <thead id="user-count-table-head">
+            <tr class="tr-age">
+              <th scope="col"></th>
+              <th class ="th-age" scope="col">10대</th>
+              <th class ="th-age" scope="col">20대</th>
+              <th class ="th-age" scope="col">30대</th>
+              <th class ="th-age" scope="col">40대</th>
+              <th class ="th-age" scope="col">50대이상</th>
+              <th class ="th-age" scope="col">전체</th>
+            </tr>
+            </thead>
+
+            <tbody id="user-count-table-body" class="align-middle">
+            <tr class="tr-gender" value="male">
+              <th id="male-count" scope="row" value="male">남자</th>
+              <td id="m10" value="10"></td>
+              <td id="m20" value="20"></td>
+              <td id="m30" value="30"></td>
+              <td id="m40" value="40"></td>
+              <td id="m50" value="50"></td>
+              <td id="mAll" value="ALL"></td>
+            </tr>
+            <tr class="tr-gender" value="female">
+              <th id="female-count" scope="row" value="female">여자</th>
+              <td id="f10" value="10"></td>
+              <td id="f20" value="20"></td>
+              <td id="f30" value="30"></td>
+              <td id="f40" value="40"></td>
+              <td id="f50" value="50"></td>
+              <td id="fAll" value="ALL"></td>
+            </tr>
+            <tr class="tr-gender" value="all">
+              <th id="all-count" scope="row" value="all">전체</th>
+              <td id="a10" value="10"></td>
+              <td id="a20" value="20"></td>
+              <td id="a30" value="30"></td>
+              <td id="a40" value="40"></td>
+              <td id="a50" value="50"></td>
+              <td id="aAll" value="ALL"></td>
+            </tr>
+
+            </tbody>
+          </table>
+
+
+          <table class="table table-hover caption-top">
+            <caption class="">
+              <div id="user-list-caption" class="float-start">유저 리스트</div>
+              <div id="user-list-count-caption" class="float-end"></div>
+            </caption>
+            <thead>
+            <tr>
+              <th  scope="col">ID</th>
+              <th  scope="col">닉네임</th>
+              <th  scope="col">이름</th>
+              <th  scope="col">성별</th>
+              <th class="col-md-1" scope="col">나이</th>
+              <th class="col-md-2">가입일</th>
+              <th id="user-role" class="col-md-2" scope="col">권한</th>
+              <th  scope="col">삭제</th>
+            </tr>
+            </thead>
+            <tbody id="user-list-table" class="align-middle">
+            </tbody>
+          </table>
+        </div>
+
+        <div id="user-delete-modal" class="modal fade" data-bs-backdrop="static"
+             data-bs-keyboard="false" tabindex="-1" aria-labelledby="test" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 id="user-delete-modal-title" class="modal-title"></h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+
+              <div id="user-delete-modal-body" class="modal-body"></div>
+
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">아니요</button>
+                <button id="user-delete-chk-btn" type="button" data-bs-dismiss="modal" class="btn btn-primary">네</button>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+        <div id="user-update-modal" class="modal fade" data-bs-backdrop="static"
+             data-bs-keyboard="false" tabindex="-1" aria-labelledby="test" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 id="user-update-modal-title" class="modal-title"></h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+
+              <div id="user-update-modal-body" class="modal-body"></div>
+
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">아니요</button>
+                <button id="user-update-chk-btn" type="button" data-bs-dismiss="modal" class="btn btn-primary">네</button>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+        <!-- Page Index를 위한 row-->
+        <div id="user-config-page-zone" class="page-row row">
+          <nav id="index-page-row" class="" aria-label="Page navigation example text-secondary">
+            <ul id="user-config-pagination"
+                class="pagination align-items-center justify-content-center"></ul>
+          </nav>
+        </div>
+
+      </div>
+    </div>
+  </main>
+</th:block>
+
+</html>

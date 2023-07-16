@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lagn="ko" xmlns:th="http://www.thymeleaf.org">
+
+<!-- Content -->
+<th:block th:fragment="loginContent">
+    <main>
+        <div class="container py-4">
+            <div class="row align-items-center justify-content-between">
+                <a class="navbar-brand h1 text-center" href="/">
+                    <span class="text-dark h2>">9ood</span>
+                    <span class="text-success h2>">Food</span>
+                </a>
+
+                <div class="col-md-3 mx-auto">
+                    <form id="login-form" class="" action="/login" method="post" th:object="${loginRequest}" novalidate>
+                        <div>
+                            <label id="login-id-label" class="form-label my-3" for="login-id-input">아이디</label>
+                            <input id="login-id-input" class="form-control" th:field = "*{username}" type="text">
+                            <span class="text-danger small" th:if="${#fields.hasErrors('username')}" th:text="${#fields.errors('username')[0]}"></span>
+                        </div>
+                        <div>
+                            <label id="login-password-label" class="form-label my-3" for="login-password-input">비밀번호</label>
+                            <input id="login-password-input" class="form-control" name="password" type="password">
+                            <span class="text-danger small" th:if="${#fields.hasErrors('password')}" th:text="${#fields.errors('password')[0]}"></span>
+                        </div>
+                        <span class="text-danger small" th:if="${#fields.hasErrors('global')}" th:text="${#fields.errors('global')[0]}"></span>
+
+                        <div class="d-grid my-3">
+                            <input class="btn btn-secondary btn-block my-3" type="submit" value="로그인">
+                        </div>
+                    </form>
+
+                    <div class="d-flex justify-content-around">
+                        <a class="link-success" href="/signup">회원가입</a>
+                        <a class="link-success" href="/password/reset/validate">비밀번호 찾기</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</th:block>
+</html>

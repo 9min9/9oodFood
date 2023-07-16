@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+
+<!-- Content -->
+<th:block th:fragment="forumCreateContent">
+    <main>
+        <div class="container-fluid px-4 bg-main-container">
+            <h1 class="mt-4">가게 등록</h1>
+            <ol class="breadcrumb mt-4 mb-0">
+                <div class="searchStore col-md-6">
+                    <div class="input-group mb-3">
+                        <input id="inputStoreName" type="text" class="form-control" placeholder="등록할 가게 입력 (ex.OOO OO점)"
+                               aria-label="storeName" aria-describedby="submitBtn-addon">
+                        <button class="btn btn-outline-secondary" type="button" id="submitBtn-addon">검색</button>
+                    </div>
+                    <div id="title-errors" class="text-danger small ms-1 mt-1"></div>
+                </div>
+            </ol>
+            <!-- InsertStoreForm -->
+            <form id="createForum-form" enctype="multipart/form-data">
+
+                <!-- Map Table -->
+                <div class="row equal">
+                    <div class="row equal">
+                        <!--  Table  -->
+                        <div class="card-body col-md-6">
+                            <table class="table table-striped">
+                                <thead>
+                                <tr>
+                                    <td>가게 선택</td>
+                                </tr>
+                                </thead>
+                            </table>
+                            <table class="table col-md-12">
+                                <tbody id="store-table-body" class=" form-control align-middle table_body"
+                                       style="width:100%; height:100%;"></tbody>
+                            </table>
+                        </div>
+
+                        <!-- Map -->
+                        <div class="card-body col-md-6">
+                            <table class="table table-striped">
+                                <thead>
+                                <tr>
+                                    <td>위치</td>
+                                </tr>
+                                </thead>
+                            </table>
+                            <div id="selectStoreMap" class="form-control" style="width:100%;height:254px;"></div>
+                        </div>
+                    </div>
+
+                    <div class="row equal">
+                        <div class="card-body col-md-6">
+                            <table class="table table-striped">
+                                <thead>
+                                <tr>
+                                    <td>내용</td>
+                                </tr>
+                                </thead>
+                            </table>
+                            <div id="store-content-zone">
+                                <div class="form-floating mb-3">
+                                    <textarea id="store-content" type="text" name="content" class="form-control w-100"
+                                              style="height:340.5px;"
+                                              placeholder="내용을 입력해주세요. &#13;&#10;추천 메뉴, 분위기, 웨이팅, 접근성 등... "></textarea>
+                                    <label for="store-content">내용을 입력해주세요. &#13;&#10;추천 메뉴, 분위기, 웨이팅, 접근성 등...</label>
+                                </div>
+                            </div>
+
+                            <table class="table table-striped">
+                                <thead>
+                                <tr>
+                                    <td>사진</td>
+                                    <td><label class="float-end btn-sm btn btn-outline-secondary" for="upload_btn">사진
+                                        올리기</label></td>
+                                </tr>
+                                </thead>
+                            </table>
+                            <div class="select-upload-photo form-control">
+                                <div id="img_zone" class="file-list row justify-content-around align-items-center">
+                                    <input id="upload_btn" name="fileList[]" onchange="addFile(this)" type="file"
+                                           multiple="multiple" accept='image/*' hidden/>
+                                    <div id="img-box0"
+                                         class="non-select-img-box img-thumbnail px-1 py-1 position-relative"
+                                         style="width:120px; height:120px;">
+                                        <img src="/images/picture.svg" id="testImg0"
+                                             class="non-select-img img-fit w-100 h-100">
+                                        <a id="img-btn0" class="d-none"><i class="img-btn-icon far fa-minus-square"></i></a>
+                                    </div>
+
+                                    <div id="img-box1"
+                                         class="non-select-img-box img-thumbnail px-1 py-1 position-relative"
+                                         style="width:120px; height:120px;">
+                                        <img src="/images/picture.svg" id="testImg1"
+                                             class="non-select-img img-fit w-100 h-100">
+                                        <a id="img-btn1" class="d-none"><i class="img-btn-icon far fa-minus-square"></i></a>
+                                    </div>
+
+                                    <div id="img-box2"
+                                         class="non-select-img-box img-thumbnail px-1 py-1 position-relative"
+                                         style="width:120px; height:120px;">
+                                        <img src="/images/picture.svg" id="testImg2"
+                                             class="non-select-img img-fit w-100 h-100">
+                                        <a id="img-btn2" class="d-none"><i class="img-btn-icon far fa-minus-square"></i></a>
+                                    </div>
+
+                                    <div id="img-box3"
+                                         class="non-select-img-box img-thumbnail px-1 py-1 position-relative"
+                                         style="width:120px; height:120px;">
+                                        <img src="/images/picture.svg" id="testImg3"
+                                             class="non-select-img img-fit w-100 h-100">
+                                        <a id="img-btn3" class="d-none"><i class="img-btn-icon far fa-minus-square"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card-body col-md-6">
+                            <table class="table table-striped">
+                                <thead>
+                                <tr>
+                                    <td>태그</td>
+                                </tr>
+                                </thead>
+                            </table>
+                            <!-- StoreMood Tag -->
+                            <div class="form-control card-body align-items-center">
+                                <div id="store-mood-tag-zone" class="store-mood-tag mb-4">
+                                    <div class="store-mood-tag-title mb-2"><label class="small">분위기</label></div>
+                                    <div id="store-mood-tag-row">
+                                        <label class="btn btn-outline-secondary">가게의 분위기</label>
+                                    </div>
+                                    <div id="moodList-errors" class="text-danger small mt-1"></div>
+                                </div>
+
+                                <!-- PriceRange Tag -->
+                                <div id="store-price-tag-zone" class="store-price-tag mb-4">
+                                    <div class="store-price-tag-title mb-2"><label class="small">가격대</label></div>
+                                    <div id="store-price-tag-row">
+                                        <label class="btn btn-outline-secondary">가게의 가격대</label>
+                                    </div>
+                                    <div id="priceRange-errors" class="text-danger small mt-1"></div>
+                                </div>
+
+                                <!-- Category Tag -->
+                                <div id="store-category-tag-zone" class="categoryTag mb-4">
+                                    <div id="store-category-tag-title" class="mb-2"><label class="small">카테고리</label>
+                                    </div>
+                                    <div id="store-category-tag-row" class="">
+                                        <label class="btn btn-outline-secondary">가게의 카테고리</label>
+                                    </div>
+                                    <div id="subCategoryList-errors" class="text-danger small mt-1"></div>
+                                </div>
+
+                                <div id="store-waiting-tag-zone" class="categoryTag mb-4">
+                                    <div id="store-waiting-tag-title" class="mb-2"><label class="small">웨이팅</label>
+                                    </div>
+                                    <div id="store-waiting-tag-row" class="">
+                                        <label class="btn btn-outline-secondary">가게의 웨이팅</label>
+                                    </div>
+                                    <div id="waiting-errors" class="text-danger small mt-1"></div>
+                                </div>
+
+                                <!-- status Tag -->
+                                <div id="store-status-tag-zone" class="statusTag mb-2">
+                                    <div id="store-status-slider-title" class="mb-2">
+                                        <label class="small">점수</label>
+                                    </div>
+                                    <div id="store-status-row" class="d-flex">
+                                        <div id="store-status-value-row"></div>
+                                    </div>
+                                    <div id="status-errors" class="text-danger small mt-1"></div>
+                                </div>
+
+                            </div>
+                            <!-- Board Footer -->
+                            <div class="form-control card-footer d-flex align-items-center justify-content-end">
+                                <input type="submit" class="btn small text-white" href="#" value="등록"><i
+                                    class="fas fa-angle-right"></i></input>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </main>
+</th:block>
+</html>

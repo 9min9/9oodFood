@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lagn="ko" xmlns:th="http://www.thymeleaf.org">
+
+<!-- Content -->
+<th:block th:fragment="etcCafeContent">
+    <main>
+        <div class="container-fluid px-4 bg-main-container">
+            <!-- Title, Sort를 위한 row-->
+            <div class="row align-items-center">
+                <!-- title -->
+                <div class="store-title col-6">
+                    <h1 class="mt-4">기타 지역 카페</h1>
+                    <ol class="breadcrumb mb-4">
+                        <li class="breadcrumb-item active">Cafe</li>
+                    </ol>
+                </div>
+
+                <!-- sort Btn -->
+                <div class="sort-btn col-6 mb-4 d-flex justify-content-end">
+                    <p><a class="btn btn-outline-secondary" data-bs-toggle="collapse" href="#sort-collapse" role="button" aria-expanded="false" aria-controls="collapseExample">
+                        정렬</a>
+                    </p>
+                </div>
+
+                <div class="collapse mb-4" id="sort-collapse">
+                    <div class="sort-tag-collapse col-md-6 d-flex justify-content-between">
+                        <div class="form-control float-start col-md-3 d-none d-md-block">IMG</div>
+
+                        <div class="form-control float-end col-md-6 justify-content-between">
+                            <div id="mood-sort-zone" class="mb-2">
+                                <label class="small mb-2">분위기</label>
+                                <div class="mood-sort-btn"></div>
+                            </div>
+
+                            <div id="price-sort-zone" class="mb-2">
+                                <label class="small mb-2">가격대</label>
+                                <div class="price-sort-btn"></div>
+                            </div>
+
+                            <div id="sub-category-sort-zone" class="mb-2">
+                                <label class="small mb-2">카테고리</label>
+                                <div class="sub-category-sort-btn">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <!-- Store Card를 위한 row-->
+            <div id="store-row" class="store-row row"></div>
+
+            <!-- Page Index를 위한 row-->
+            <div id="index-page-zone" class="page-row row">
+                <nav id="index-page-row" class="" aria-label="Page navigation example text-secondary">
+                    <ul id="store-pagination" class="pagination align-items-center justify-content-center"></ul>
+                </nav>
+            </div>
+
+        </div>
+    </main>
+</th:block>
+
+</html>

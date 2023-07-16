@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lagn="ko" xmlns:th="http://www.thymeleaf.org">
+
+<!-- Content -->
+<th:block th:fragment="storeConfigContent">
+    <main>
+        <div class="container-fluid px-4 bg-main-container">
+            <!-- Title, Sort를 위한 row-->
+            <div class="row align-items-center">
+                <!-- title -->
+                <div class="store-title col-6">
+                    <h1 class="mt-4">가게 관리</h1>
+                    <ol class="breadcrumb mb-4">
+                        <li class="breadcrumb-item active">All Store</li>
+                    </ol>
+                </div>
+
+                <!-- sort Btn -->
+                <div class="sort-btn col-6 mb-4 d-flex justify-content-end">
+                    <p>
+                        <a class="btn btn-outline-secondary" data-bs-toggle="collapse" href="#sort-collapse"
+                           role="button" aria-expanded="false" aria-controls="sortCollapse">정렬 태그 선택</a>
+                    </p>
+                </div>
+
+                <div id="sort-collapse" class="collapse col-md-6 mb-4" >
+                    <div class="form-control float-end col-md-6 justify-content-between">
+                        <div id="location-sort-zone" class="mb-2">
+                            <label class="small mb-2">지역</label>
+                            <div class="location-sort-btn"></div>
+                        </div>
+                        <div id="category-sort-zone" class="mb-2">
+                            <label class="small mb-2">카테고리</label>
+                            <div class="category-sort-btn"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Store List Table을 위한 row-->
+                <div id="store-list-row" class="row">
+                    <table id="store-count-table" class="table table-hover caption-top">
+                        <caption id="store-count-list-caption">가게 개수</caption>
+                        <thead id="store-count-table-head">
+                        <tr>
+                            <th scope="col">지역</th>
+                            <th scope="col">식당</th>
+                            <th scope="col">카페</th>
+                            <th scope="col">술집</th>
+                            <th scope="col">전체 개수</th>
+                        </tr>
+                        </thead>
+                        <tbody id="store-count-table-body" class="align-middle">
+                        <tr value="seoul">
+                            <th id="seoul-count" scope="row" value="seoul">서울</th>
+                            <td id="sr" value="RESTAURANT"></td>
+                            <td id="sc" value="CAFE"></td>
+                            <td id="sb" value="BAR"></td>
+                            <td id="sa" value="ALL"></td>
+                        </tr>
+                        <tr value="gyeonggi">
+                            <th id="gyeonggi-count" scope="row" value="gyeonggi">경기</th>
+                            <td id="gr" value="RESTAURANT"></td>
+                            <td id="gc" value="CAFE"></td>
+                            <td id="gb" value="BAR"></td>
+                            <td id="ga" value="ALL"></td>
+                        </tr>
+                        <tr value="etc">
+                            <th id="etc-count" scope="row" value="etc">기타</th>
+                            <td id="er" value="RESTAURANT"></td>
+                            <td id="ec" value="CAFE"></td>
+                            <td id="eb" value="BAR"></td>
+                            <td id="ea" value="ALL"></td>
+                        </tr>
+                        <tr value="all">
+                            <th id="all-count" scope="row" value="all">전체 개수</th>
+                            <td id="ar" value="RESTAURANT"></td>
+                            <td id="ac" value="CAFE"></td>
+                            <td id="ab" value="BAR"></td>
+                            <td id="aa" value="ALL"></td>
+                        </tr>
+
+                        </tbody>
+                    </table>
+
+
+                    <table class="table table-hover caption-top">
+                        <caption class="">
+                            <div id="store-list-caption" class="float-start">가게 리스트</div>
+                            <div id="store-list-count-caption" class="float-end"></div>
+                        </caption>
+                        <thead>
+                        <tr>
+                            <th scope="col">ID</th>
+                            <th scope="col">이름</th>
+                            <th scope="col">지역</th>
+                            <th scope="col">카테고리</th>
+                            <th scope="col">등록일</th>
+                            <th scope="col">수정</th>
+                            <th scope="col">삭제</th>
+                        </tr>
+                        </thead>
+                        <tbody id="store-list-table" class="align-middle">
+                        </tbody>
+                    </table>
+                </div>
+
+                <div id="forum-delete-modal" class="modal fade" data-bs-backdrop="static"
+                     data-bs-keyboard="false" tabindex="-1" aria-labelledby="test" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 id="forum-delete-modal-title" class="modal-title"></h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+
+                            <div id="forum-delete-modal-body" class="modal-body"></div>
+
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">아니요</button>
+                                <button id="forum-delete-chk-btn" type="button" data-bs-dismiss="modal" class="btn btn-primary">네</button>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Page Index를 위한 row-->
+                <div id="store-config-page-zone" class="page-row row">
+                    <nav id="index-page-row" class="" aria-label="Page navigation example text-secondary">
+                        <ul id="store-config-pagination"
+                            class="pagination align-items-center justify-content-center"></ul>
+                    </nav>
+                </div>
+
+            </div>
+        </div>
+    </main>
+</th:block>
+
+</html>

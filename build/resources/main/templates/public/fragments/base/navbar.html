@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
+
+
+<th:block th:fragment="navbar">
+
+    <nav class="sb-topnav navbar navbar-expand navbar-light bg-light">
+        <div class="align-items-center">
+            <a class="navbar-brand p-3" href="/">
+                <span class="text-dark h2>">9ood</span>
+                <span class="text-success h2>">Food</span>
+            </a>
+            <!-- Sidebar Toggle-->
+            <button class="btn btn-link btn-sm order-0 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
+        </div>
+        <!-- Navbar Brand-->
+<!--        <a class="navbar-brand ps-3 col-sm-auto" href="/">-->
+<!--            <span class="text-dark h2>">9ood</span>-->
+<!--            <span class="text-success h2>">Food</span>-->
+<!--        </a>-->
+<!--        &lt;!&ndash; Sidebar Toggle&ndash;&gt;-->
+<!--        <button class="btn btn-link btn-sm order-0 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>-->
+
+        <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
+        </ul>
+
+        <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
+        </form>
+
+        <!-- Navbar-->
+        <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4 color-white">
+<!--            <li sec:authorize="isAnonymous() or isAuthenticated()" class="nav-item dropdown">-->
+<!--                <a  id="nav-restaurant" class="btn btn-link btn-lg" role="button" data-bs-toggle="dropdown" aria-expanded="false"><img src="/images/restaurant.svg" width="25"></a>-->
+
+<!--                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">-->
+<!--                    <li><a class="dropdown-item" href="/store/restaurant/seoul">서울</a></li>-->
+<!--                    <li><hr class="dropdown-divider"/></li>-->
+<!--                    <li><a class="dropdown-item" href="/store/restaurant/gyeonggi">경기</a></li>-->
+<!--                    <li><hr class="dropdown-divider"/></li>-->
+<!--                    <li><a class="dropdown-item" href="/store/restaurant/etc">기타</a></li>-->
+<!--                </ul>-->
+<!--            </li>-->
+<!--            <li sec:authorize="isAnonymous() or isAuthenticated()" class="nav-item dropdown">-->
+<!--                <a  id="nav-cafe" class="btn btn-link btn-lg" role="button" data-bs-toggle="dropdown" aria-expanded="false"><img src="/images/cafe.svg" width="25"></a>-->
+
+<!--                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">-->
+<!--                    <li><a class="dropdown-item" href="/store/cafe/seoul">서울</a></li>-->
+<!--                    <li><hr class="dropdown-divider"/></li>-->
+<!--                    <li><a class="dropdown-item" href="/store/cafe/gyeonggi">경기</a></li>-->
+<!--                    <li><hr class="dropdown-divider"/></li>-->
+<!--                    <li><a class="dropdown-item" href="/store/cafe/etc">기타</a></li>-->
+<!--                </ul>-->
+<!--            </li>-->
+<!--            <li sec:authorize="isAnonymous() or isAuthenticated()" class="nav-item dropdown">-->
+<!--                <a  id="nav-bar" class="btn btn-link btn-lg" role="button" data-bs-toggle="dropdown" aria-expanded="false"><img src="/images/bar.svg" width="25"></a>-->
+
+<!--                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">-->
+<!--                    <li><a class="dropdown-item" href="/store/bar/seoul">서울</a></li>-->
+<!--                    <li><hr class="dropdown-divider"/></li>-->
+<!--                    <li><a class="dropdown-item" href="/store/bar/gyeonggi">경기</a></li>-->
+<!--                    <li><hr class="dropdown-divider"/></li>-->
+<!--                    <li><a class="dropdown-item" href="/store/bar/etc">기타</a></li>-->
+<!--                </ul>-->
+<!--            </li>-->
+            <a sec:authorize="isAnonymous()" id="sign-up" class="btn btn-link btn-lg" href="/signup"><i class="far fa-user" style="fill: none; color: #444f58; width: 25px;"></i></a>
+            <a sec:authorize="isAnonymous()" id="login" class="btn btn-link btn-lg " href="/login"><i class="fa fa-sign-in" style="fill: none; color: #444f58; width: 25px;"></i></a>
+            <div id="login-user-name" sec:authentication="name" class="" hidden></div>
+
+            <a sec:authorize="hasRole('ADMIN')" id="admin-page" class="btn btn-link btn-lg " href="/admin"><i class="fas fa-cogs text-success"></i></a>
+            <li sec:authorize="isAuthenticated()" class="nav-item dropdown">
+                <a  id="favorite" class="btn btn-link btn-lg" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa fa-star text-success"></i></a>
+                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                    <li><a class="dropdown-item" href="/user/liked/restaurant">식당</a></li>
+                    <li><hr class="dropdown-divider"/></li>
+                    <li><a class="dropdown-item" href="/user/liked/cafe">카페</a></li>
+                    <li><hr class="dropdown-divider"/></li>
+                    <li><a class="dropdown-item" href="/user/liked/bar">술집</a></li>
+                </ul>
+            </li>
+            <a sec:authorize="isAuthenticated()" id="my-page" class="btn btn-link btn-lg " href="/user/mypage"><i class="fas fa-cog text-success"></i></a>
+            <a sec:authorize="isAuthenticated()" id="logout" class="btn btn-link btn-lg " href="/logout"><i class="fa fa-sign-out text-success"></i></a>
+        </ul>
+    </nav>
+
+
+</th:block>
+</html>
